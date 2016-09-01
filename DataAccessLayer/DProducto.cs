@@ -54,5 +54,12 @@ namespace DataAccessLayer
             return rpta;
         }
 
+        public string insert_with_ejecuta(EProducto producto)
+        {
+            string [] parametros = { "@id", "@descripcion", "@marca", "@precio" };
+            dbconnection.ejecuta("spinsert_producto", 
+ 
+        }
+
     }
 }
