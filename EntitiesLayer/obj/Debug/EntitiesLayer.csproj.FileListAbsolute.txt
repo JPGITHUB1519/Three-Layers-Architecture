@@ -1,0 +1,4 @@
+C:\Users\Programador\Desktop\Proyecto 1 C# Preparation\ThreeLayersArchitecture\EntitiesLayer\bin\Debug\EntitiesLayer.dll
+C:\Users\Programador\Desktop\Proyecto 1 C# Preparation\ThreeLayersArchitecture\EntitiesLayer\bin\Debug\EntitiesLayer.pdb
+C:\Users\Programador\Desktop\Proyecto 1 C# Preparation\ThreeLayersArchitecture\EntitiesLayer\obj\Debug\EntitiesLayer.dll
+C:\Users\Programador\Desktop\Proyecto 1 C# Preparation\ThreeLayersArchitecture\EntitiesLayer\obj\Debug\EntitiesLayer.pdb

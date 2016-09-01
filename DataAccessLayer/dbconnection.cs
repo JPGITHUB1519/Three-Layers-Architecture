@@ -5,7 +5,8 @@ using System.Text;
 
 namespace DataAccessLayer
 {
-    class dbconnection
+    public class dbconnection
     {
+        public string connection_string = DataAccessLayer.Properties.Settings.Default.cn;
     }
 }
