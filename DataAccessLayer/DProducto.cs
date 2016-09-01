@@ -18,7 +18,10 @@ namespace DataAccessLayer
             SqlConnection con = new SqlConnection();
             try
             {
+                con.ConnectionString = DataAccessLayer.Properties.Settings.Default.cn;
+                con.Open();
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
                 cmd.CommandText = "spinsert_producto";
                 cmd.CommandType = CommandType.StoredProcedure;
 

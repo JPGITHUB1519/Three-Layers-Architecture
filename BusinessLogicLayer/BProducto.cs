@@ -12,7 +12,7 @@ namespace BusinessLogicLayer
 {
     public class BProducto
     {
-        private DProducto data_producto;
+        private DProducto data_producto = new DProducto();
         private readonly StringBuilder strbuild = new StringBuilder();
 
         public string insert(EProducto producto)
