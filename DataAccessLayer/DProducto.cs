@@ -56,9 +56,69 @@ namespace DataAccessLayer
 
         public string insert_with_ejecuta(EProducto producto)
         {
-            string [] parametros = { "@id", "@descripcion", "@marca", "@precio" };
-            dbconnection.ejecuta("spinsert_producto", 
+            string query = string.Format("exec spinsert_producto {0}, '{1}', '{2}', {3}", producto.Id, producto.Descripcion, producto.Marca, producto.Precio);
+
+            if (dbconnection.ejecuta(query) != null)
+            {
+                return "Exito";
+            }
+
+            return "Error";
+
+        }
+
+        public DataSet mostrar_with_ejecuta()
+        {
+            DataSet ds = new DataSet();
+            string query = "exec spselect_producto";
+            ds = dbconnection.ejecuta(query);
+            return ds;
+        }
+        // best
+        public string insert_with_execute(EProducto producto)
+        {
+            DataSet ds = new DataSet();
+            string rpta = "";
+            // query to execute
+            string cmd = "spinsert_producto";
+            try
+            {
+                // creating dictionary with the params of the query
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@id", producto.Id);
+                parameters.Add("@descripcion", producto.Descripcion);
+                parameters.Add("@marca", producto.Marca);
+                parameters.Add("@precio", producto.Precio);
+                ds = dbconnection.execute_query(cmd, parameters);
+
+                rpta = "EXITO";
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+
+            return rpta;
  
+        }
+
+        public DataSet select_with_execute()
+        {
+            DataSet ds = new DataSet();
+            string rpta = "";
+            string cmd = "spselect_producto";
+
+            try
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                ds = dbconnection.execute_query(cmd, parameters);
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+
+            return ds;
         }
 
     }

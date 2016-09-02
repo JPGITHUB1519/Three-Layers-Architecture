@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using EntitiesLayer;
 using DataAccessLayer;
+using System.Data;
+using System.Data.SqlClient;
 
 /* Capa Negocio en esta capa hago las validaciones y recojo los datos de presentacion
  * y se los envio a la capa datos y viceversa */
@@ -21,7 +23,7 @@ namespace BusinessLogicLayer
             // si los datos son incorrectos
             if (validar_producto(producto))
             {
-                rpta = data_producto.insert(producto); 
+                rpta = data_producto.insert_with_execute(producto); 
             }
             else 
             {
@@ -29,6 +31,11 @@ namespace BusinessLogicLayer
             }
 
             return rpta;
+        }
+
+        public DataSet select()
+        {
+            return data_producto.select_with_execute();
         }
 
         private bool validar_producto(EProducto producto)

@@ -21,6 +21,13 @@ namespace PresentationLayer
         // creating necessary objects
         private EProducto producto = new EProducto();
         private BProducto bus_producto = new BProducto();
+        private DataSet ds = new DataSet();
+
+        public void llenar_grid()
+        {
+            ds= bus_producto.select();
+            this.dataGridView1.DataSource = ds.Tables[0] ;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -32,7 +39,12 @@ namespace PresentationLayer
 
             rpta =  bus_producto.insert(producto);
             MessageBox.Show(rpta);
-            
+            llenar_grid();
+        }
+
+        private void frmproducto_Load(object sender, EventArgs e)
+        {
+            llenar_grid();
         }
     }
 }
